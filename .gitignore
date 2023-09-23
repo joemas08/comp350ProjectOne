@@ -1,0 +1,16 @@
+# Ignore compiled C executables without file extensions
+*   # This will match any file without an extension
+
+# Ignore object files generated during compilation
+*.o
+
+# Ignore files created by the linker
+*.so
+*.dll
+
+# Ignore core dumps
+core
+
+# Ignore any other files or directories you want to exclude
+# example_directory/
+
