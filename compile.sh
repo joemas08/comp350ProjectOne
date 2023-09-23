@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcc -o countprimes countprimes.c
+gcc -o executable $1

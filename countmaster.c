@@ -10,8 +10,13 @@ int main()
     arguments[3]=NULL;
 
 
-    execvp("./countprimes", arguments);
-
+	int processID = fork();
+	if (processID == 0)
+		execvp("./countprimes", arguments);
+	int status;
+	waitpid(processID, &status, 0);
+	printf("\n\tTest Print\n");
+	printf("Exit status: %d\n",WEXITSTATUS(status));
 }
 
 
