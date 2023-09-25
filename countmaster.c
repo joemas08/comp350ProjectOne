@@ -7,26 +7,27 @@ int main() {
     arguments[0]="./countprimes";
     arguments[1]="10";
     arguments[2]="30";
-    arguments[3]="4";
+    arguments[3]= "4";
 
-    int NUMBER_OF_CALLS = atoi(arguments[3]);
+	int NUMBER_OF_CALLS = atoi(arguments[3]);
 
-    for (int i = 0; i < NUMBER_OF_CALLS; i++) {
+    arguments[3]= NULL;
 
-        int processID = fork();
+	for (int i = 0; i < NUMBER_OF_CALLS; i++) {
+		int processID = fork();
 
-        if (processID == 0) {
+		if (processID == 0) {
 
-            execvp("./countprimes", arguments);
+			execvp("./countprimes", arguments);
 
-        }
+		}
+		int status;
+		waitpid(processID, &status, 0);
+		printf("\n\tTest Print\n");
+		printf("\tExit status: %d\n\n",WEXITSTATUS(status));
 
-        int status;
-        waitpid(processID, &status, 0);
-        printf("\n\tTest Print\n");
-        printf("Exit status: %d\n",WEXITSTATUS(status));
-
-    }
+	}
+	
 
 }
 
