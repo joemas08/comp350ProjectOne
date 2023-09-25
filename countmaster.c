@@ -10,22 +10,33 @@ int main() {
     arguments[3]= "4";
 
 	int NUMBER_OF_CALLS = atoi(arguments[3]);
-
     arguments[3]= NULL;
 
-	for (int i = 0; i < NUMBER_OF_CALLS; i++) {
-		int processID = fork();
+	int processids[NUMBER_OF_CALLS];
 
-		if (processID == 0) {
+	int exitStatusTotal = 0;
+
+
+	for (int i = 0; i < NUMBER_OF_CALLS; i++) {
+		processids[i] = fork();
+
+		if (processids[i] == 0) {
 
 			execvp("./countprimes", arguments);
 
 		}
-		int status;
-		waitpid(processID, &status, 0);
-		printf("\n\tTest Print\n");
-		printf("\tExit status: %d\n\n",WEXITSTATUS(status));
 
+
+	}
+
+	for (int i = 0; i < NUMBER_OF_CALLS;i++){
+		int status;
+		waitpid(processids[i], &status, 0);
+		exitStatusTotal += WEXITSTATUS(status);
+		printf("\n\nRunning Total: %d\n", exitStatusTotal);
+		
+		//printf("\n\tTest Print\n");
+		//printf("\tExit status: %d\n\n",WEXITSTATUS(status));
 	}
 	
 
