@@ -25,15 +25,20 @@ int main() {
 			int start = atoi(arguments[1]);
 			int end = atoi(arguments[2]);
 
-			for (int j = start; j < end; j += 6) {
+			for (int j = start; j <= end; j += 6) {
 				char str[10];
+				char str2[10];
+
+				if (j > end - 5) {
+					j = end - 5;
+				}
+
 				snprintf(str, sizeof(str), "%d", j);
 				arguments[1]= str;
-				printf("Argument 1: %s\n", arguments[1]);
-				char str2[10];
+
 				snprintf(str2, sizeof(str2), "%d", j + 5);
 				arguments[2]= str2;
-				printf("Argument 2: %s\n", arguments[2]);
+
 
 				execvp("./countprimes", arguments);
 
