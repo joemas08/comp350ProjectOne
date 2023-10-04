@@ -1,5 +1,13 @@
+/*
+ Joseph Masone
+ COMP350-001
+ October 4, 2023
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
 
 int main() {
 
@@ -22,28 +30,7 @@ int main() {
 
 		if (processids[i] == 0) {
 
-			int start = atoi(arguments[1]);
-			int end = atoi(arguments[2]);
-
-			for (int j = start; j <= end; j += 6) {
-				char str[10];
-				char str2[10];
-
-				if (j > end - 5) {
-					j = end - 5;
-				}
-
-				snprintf(str, sizeof(str), "%d", j);
-				arguments[1]= str;
-
-				snprintf(str2, sizeof(str2), "%d", j + 5);
-				arguments[2]= str2;
-
-
-				execvp("./countprimes", arguments);
-
-			}
-
+			execvp("./countprimes", arguments);
 
 		}
 
@@ -56,10 +43,7 @@ int main() {
 		exitStatusTotal += WEXITSTATUS(status);
 		printf("\n\nRunning Total: %d\n", exitStatusTotal);
 		
-		//printf("\n\tTest Print\n");
-		//printf("\tExit status: %d\n\n",WEXITSTATUS(status));
 	}
-	
 
 }
 

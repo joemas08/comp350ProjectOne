@@ -1,0 +1,6 @@
+https://www.geeksforgeeks.org/fork-system-call/
+https://www.digitalocean.com/community/tutorials/execvp-function-c-plus-plus
+https://cplusplus.com/reference/cstdio/snprintf/
+
+- My GitHub Repo
+https://github.com/joemas08/comp350ProjectOne

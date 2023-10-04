@@ -1,0 +1,1 @@
+The steps I completed was one through five. I could not figure out how to get step six working. My main issue was not being able to split up the programs. It would run the countprimes on the same set of numbers without ever changing the input to the program.
